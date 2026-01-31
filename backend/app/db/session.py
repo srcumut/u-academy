@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db" # using sqlite for now as per simple setup, can be chanegd to postgres
+SQLALCHEMY_DATABASE_URL = "sqlite:///./u_academy_v2.db" # using sqlite for now as per simple setup, can be chanegd to postgres
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}

@@ -15,25 +15,25 @@ def seed_db():
     db = SessionLocal()
 
     try:
-        if not db.query(User).filter(User.email == "student@example.com").first():
+        if not db.query(User).filter(User.username == "ogrenci1").first():
             student = User(
-                email="student@example.com",
-                password_hash=get_password_hash("password123"),
+                username="ogrenci1",
+                password_hash=get_password_hash("123456"),
                 role=UserRole.STUDENT,
-                full_name="Test Student"
+                full_name="Ahmet Yılmaz"
             )
             db.add(student)
-            print("Created student@example.com / password123")
+            print("Created: ogrenci1 / 123456")
 
-        if not db.query(User).filter(User.email == "teacher@example.com").first():
+        if not db.query(User).filter(User.username == "ogretmen1").first():
             teacher = User(
-                email="teacher@example.com",
-                password_hash=get_password_hash("password123"),
+                username="ogretmen1",
+                password_hash=get_password_hash("123456"),
                 role=UserRole.TEACHER,
-                full_name="Test Teacher"
+                full_name="Dr. Zeynep Kaya"
             )
             db.add(teacher)
-            print("Created teacher@example.com / password123")
+            print("Created: ogretmen1 / 123456")
         
         db.commit()
     except Exception as e:

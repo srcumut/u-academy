@@ -8,7 +8,7 @@ from datetime import datetime
 class AuthService:
     @staticmethod
     def authenticate_user(db: Session, login_data: Login) -> User:
-        user = db.query(User).filter(User.email == login_data.email).first()
+        user = db.query(User).filter(User.username == login_data.username).first()
         if not user:
             return None
         if not verify_password(login_data.password, user.password_hash):
@@ -17,7 +17,7 @@ class AuthService:
 
     @staticmethod
     def reset_password(db: Session, reset_data: PasswordReset) -> User:
-        user = db.query(User).filter(User.email == reset_data.email).first()
+        user = db.query(User).filter(User.username == reset_data.username).first()
         if not user:
             return None
         if not verify_password(reset_data.current_password, user.password_hash):

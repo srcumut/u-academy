@@ -22,32 +22,32 @@ export default function DashboardLayout({
             {/* Sidebar */}
             <aside className="w-64 bg-card border-r border-border hidden md:flex flex-col flex-shrink-0">
                 <div className="h-20 flex justify-center items-center px-8 border-b border-border">
-                    <Link href="/dashboard" className="cursor-pointer">
-                        <span className="text-2xl font-bold text-primary flex justify-center">
-                            U-ACADEMY
+                    <Link href="/student/dashboard" className="cursor-pointer">
+                        <span className="text-2xl font-bold text-center text-primary flex align-center justify-center">
+                            U-ACADEMY (Öğrenci)
                         </span>
                     </Link>
                 </div>
 
                 <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scrollbar">
-                    <SidebarItem icon={Home} label="Dashboard" href="/dashboard" active />
-                    <SidebarItem icon={BookOpen} label="My Courses" href="/dashboard/courses" />
-                    <SidebarItem icon={BarChart2} label="Performance" href="/dashboard/performance" />
-                    <SidebarItem icon={Bell} label="Announcements" href="/dashboard/announcements" />
-                    <SidebarItem icon={User} label="Profile" href="/dashboard/profile" />
-                    <SidebarItem icon={Settings} label="Settings" href="/dashboard/settings" />
+                    <SidebarItem icon={Home} label="Panel" href="/student/dashboard" active />
+                    <SidebarItem icon={BookOpen} label="Kurslarım" href="/student/dashboard/courses" />
+                    <SidebarItem icon={BarChart2} label="Performans" href="/student/dashboard/performance" />
+                    <SidebarItem icon={Bell} label="Duyurular" href="/student/dashboard/announcements" />
+                    <SidebarItem icon={User} label="Profil" href="/student/dashboard/profile" />
+                    <SidebarItem icon={Settings} label="Ayarlar" href="/student/dashboard/settings" />
                 </nav>
 
                 <div className="p-4 border-t border-border mt-auto">
                     <div className="bg-secondary/50 rounded-xl p-4 mb-4">
-                        <p className="text-xs text-muted-foreground mb-2">Upgrade to Pro</p>
+                        <p className="text-xs text-muted-foreground mb-2">Pro'ya Yükselt</p>
                         <button className="w-full py-2 bg-primary text-primary-foreground rounded-lg text-xs font-bold hover:bg-primary/90 transition-transform active:scale-95 cursor-pointer">
-                            Go Premium
+                            Premium Ol
                         </button>
                     </div>
                     <button onClick={handleLogout} className="flex items-center space-x-3 w-full px-4 py-3 text-sm font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-lg transition-colors cursor-pointer group">
                         <LogOut size={18} />
-                        <span>Logout</span>
+                        <span>Çıkış Yap</span>
                     </button>
                 </div>
             </aside>
@@ -61,24 +61,24 @@ export default function DashboardLayout({
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
                             <input
                                 type="text"
-                                placeholder="Type to search..."
+                                placeholder="Ara..."
                                 className="w-full bg-secondary/50 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary outline-none transition-all"
                             />
                         </div>
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        <Link href="/dashboard/announcements">
+                        <Link href="/student/dashboard/announcements">
                             <button className="w-10 h-10 rounded-full bg-secondary/50 flex items-center justify-center text-foreground hover:bg-primary/10 hover:text-primary transition-colors relative cursor-pointer active:scale-95">
                                 <Bell size={20} />
                                 <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                             </button>
                         </Link>
-                        <Link href="/dashboard/profile ">
+                        <Link href="/student/dashboard/profile">
                             <button className="flex items-center gap-3 pl-2 pr-1 py-1 rounded-full hover:bg-secondary/50 transition-colors cursor-pointer group">
                                 <div className="text-right hidden sm:block">
-                                    <p className="text-sm font-semibold text-foreground leading-none">Student</p>
-                                    <p className="text-xs text-muted-foreground">Free Plan</p>
+                                    <p className="text-sm font-semibold text-foreground leading-none">Öğrenci</p>
+                                    <p className="text-xs text-muted-foreground">Ücretsiz Plan</p>
                                 </div>
 
                                 <div className="w-10 h-10 rounded-full border border-border cursor-pointer shadow-sm group-hover:border-primary transition-all">

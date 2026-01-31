@@ -25,18 +25,17 @@ def login_for_access_token(
     db: Session = Depends(get_db)
 ):
     # Using OAuth2PasswordRequestForm for Swagger UI compatibility, 
-    # but our schema uses 'email', form uses 'username'. 
-    # We map form.username to email.
-    user = auth_service.authenticate_user(db, auth_schemas.Login(email=form_data.username, password=form_data.password))
+    # form uses 'username' compatible fields.
+    user = auth_service.authenticate_user(db, auth_schemas.Login(username=form_data.username, password=form_data.password))
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password",
+            detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = security.create_access_token(
-        subject=user.email, expires_delta=access_token_expires
+        subject=user.username, expires_delta=access_token_expires
     )
     # TODO: Generate and store refresh token here
     

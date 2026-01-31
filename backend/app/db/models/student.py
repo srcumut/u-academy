@@ -9,6 +9,4 @@ class Student(Base):
 
     # Relationships
     user = relationship("User", back_populates="student")
-    student_stats = relationship("StudentStats", back_populates="student")
-    overall_progress = relationship("TopicProgress", back_populates="student")
-    enrolled_courses = relationship("TeacherStudent", back_populates="student")
+    enrolled_lessons = relationship("Lesson", back_populates="students", secondary="student_lessons")

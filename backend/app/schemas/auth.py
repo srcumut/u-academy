@@ -9,10 +9,10 @@ class TokenPayload(BaseModel):
     sub: Optional[str] = None
 
 class Login(BaseModel):
-    email: str
+    username: str
     password: str
 
 class PasswordReset(BaseModel):
-    email: str
+    username: str
     current_password: str
     new_password: str
