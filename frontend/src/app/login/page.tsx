@@ -51,12 +51,12 @@ export default function LoginPage() {
                     router.push('/student/dashboard'); // Varsayılan olarak öğrenciye at
                 }
             } catch (roleError) {
-                console.error("Rol bilgisi alınamadı:", roleError);
+                console.log("Rol bilgisi alınamadı:", roleError);
                 router.push('/student/dashboard'); // Hata durumunda öğrenci paneline yolla
             }
 
         } catch (err: any) {
-            console.error(err);
+            console.log(err);
             setError('Kayıt bulunamadı veya şifre yanlış.');
         } finally {
             setIsLoading(false);

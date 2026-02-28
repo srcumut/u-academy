@@ -1,7 +1,7 @@
 'use client';
 
 import { ComponentType } from 'react';
-import { Home, BookOpen, Bell, BarChart2, User, LogOut, Search, Settings } from 'lucide-react';
+import { Home, BookOpen, Bell, BarChart2, User, LogOut, Search, Settings, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -33,7 +33,7 @@ export default function DashboardLayout({
                     <SidebarItem icon={Home} label="Panel" href="/student/dashboard" active />
                     <SidebarItem icon={BookOpen} label="Kurslarım" href="/student/dashboard/courses" />
                     <SidebarItem icon={BarChart2} label="Performans" href="/student/dashboard/performance" />
-                    <SidebarItem icon={Bell} label="Duyurular" href="/student/dashboard/announcements" />
+                    <SidebarItem icon={TrendingUp} label="İlerleme" href="/student/dashboard/progress" />
                     <SidebarItem icon={User} label="Profil" href="/student/dashboard/profile" />
                     <SidebarItem icon={Settings} label="Ayarlar" href="/student/dashboard/settings" />
                 </nav>

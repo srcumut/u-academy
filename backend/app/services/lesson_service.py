@@ -8,11 +8,6 @@ from fastapi import HTTPException
 class LessonService:
     @staticmethod
     def get_lessons_for_user(db: Session, user: User) -> List[Lesson]:
-        """
-        Kullanıcının rolüne göre dersleri getirir.
-        - Öğrenci ise: Kayıtlı olduğu dersler.
-        - Öğretmen ise: Verdiği dersler.
-        """
         if user.role == UserRole.STUDENT:
             student = db.query(Student).filter(Student.id == user.id).first()
             if not student:

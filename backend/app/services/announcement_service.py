@@ -9,11 +9,15 @@ from fastapi import HTTPException
 class AnnouncementService:
     @staticmethod
     def get_global_announcements(db: Session) -> List[Announcement]:
-        """
-        Global duyuruları getirir.
-        """
         return db.query(Announcement)\
             .filter(Announcement.is_global == True)\
+            .order_by(Announcement.created_at.desc())\
+            .all()
+
+    @staticmethod
+    def get_announcements_by_teacher(db: Session, teacher_id: int) -> List[Announcement]:
+        return db.query(Announcement)\
+            .filter(Announcement.sender_teacher_id == teacher_id)\
             .order_by(Announcement.created_at.desc())\
             .all()
 

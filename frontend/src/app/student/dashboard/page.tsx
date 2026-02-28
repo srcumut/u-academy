@@ -87,7 +87,7 @@ export default function DashboardPage() {
                                 <div key={announcement.id} className='bg-card/50 backdrop-blur-sm border border-black/10 
                                 rounded-2xl p-4 overflow-y-auto max-h-[300px] space-y-4 shadow-inner 
                                 custom-scrollbar'>
-                                    <h3 className='text-lg font-bold text-foreground'>
+                                    <h3 className='text-lg font-bold text-primary/90 text-foreground'>
                                         {announcement.title}
                                         <span className="text-sm font-normal text-muted-foreground ml-2">
                                             - {announcement.teacher_name || "Sistem"}

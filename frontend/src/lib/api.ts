@@ -14,6 +14,18 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Lesson Service
 export const lessonService = {
@@ -24,7 +36,11 @@ export const lessonService = {
   getLessonById: async (id: number) => {
     const response = await api.get(`/lessons/${id}`);
     return response.data;
-  }
+  },
+  getAnnouncementsByTeacherId: async (teacher_id: number) => {
+    const response = await api.get(`/announcements/teacher/${teacher_id}`);
+    return response.data;
+  },
 };
 
 export default api;

@@ -7,8 +7,10 @@ class LessonBase(BaseModel):
 class LessonCreate(LessonBase):
     pass
 
+
 class Lesson(LessonBase):
     id: int
+    teacher_id: Optional[int] = None
     teacher_name: Optional[str] = None
 
     class Config:

@@ -42,4 +42,10 @@ def read_lesson(
     if lesson.teacher and lesson.teacher.user:
         l_schema.teacher_name = lesson.teacher.user.full_name
     
+    
     return l_schema
+
+
+
+
+    

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\umute\Desktop\project-u\u-academy\backend\test_import.py", line 4, in <module>
+    from app.main import app
+  File "C:\Users\umute\Desktop\project-u\u-academy\backend\app\main.py", line 30, in <module>
+    from app.api.v1.api_router import api_router
+  File "C:\Users\umute\Desktop\project-u\u-academy\backend\app\api\v1\api_router.py", line 2, in <module>
+    from app.api.v1 import announcement, lesson
+  File "C:\Users\umute\Desktop\project-u\u-academy\backend\app\api\v1\lesson.py", line 6, in <module>
+    from app.services.lesson_service import lesson_service
+  File "C:\Users\umute\Desktop\project-u\u-academy\backend\app\services\lesson_service.py", line 7, in <module>
+    from announcement_service import get_global_announcements
+ModuleNotFoundError: No module named 'announcement_service'
